@@ -2,6 +2,7 @@ package ImpresoraLauraCristina;
 
 
 import cisa_impresores.CisaExceptions;
+import cisa_impresores.SendEmail;
 import java.io.*;
 import java.net.*;
 import java.nio.file.*;
@@ -31,6 +32,19 @@ public class BrotherLC {
         double total = int1 + int2; //Els sumem
         Double percentatge = (total * 100) / 170; //Fem el percentatge sobre el total
         percentatgeBrother(percentatge);
+        SendEmail sendmail = new SendEmail();
+        if(percentatge < 100){
+             String subject = "La impresora: Brother Laura & Cristina s'ha quedat sense tinta";
+             String messages = "Falta el color: Negre (unic color)";
+             EnviarMail(sendmail, subject, messages);
+        }
+    }
+    private static void EnviarMail(SendEmail sendmail, String subject, String messages) {
+        try {
+            sendmail.Email(subject, messages);
+        } catch (CisaExceptions ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     public static void percentatgeBrother(Double percentatge) throws IOException {
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html"); //Declarem l'arxiu on ho posarem tot
