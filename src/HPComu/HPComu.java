@@ -2,7 +2,6 @@ package HPComu;
 
 import cisa_impresores.*;
 import static HPComu.TintaComu.*;
-import static cisa_impresores.SendEmail.*;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -52,13 +51,25 @@ public class HPComu {
         tintaMagenta(magenta);
         int groc = Integer.parseInt(lines2.get(421).replace(" ", "").substring(0, 2));//Percentatge color negre
         tintaGroga(groc);
-        SendEmail sendmail = new SendEmail();
-        if(black <= 10){
-            String subject = "La impresora: " + "x" + " s'ha quedat sense tinta";
-            String messages = "Falta el color: " + "x";
-            EnviarMail(sendmail, subject, messages);
-        }
         
+        ArrayList<Integer> percCol = new ArrayList<> ();
+        ArrayList<String> colors = new ArrayList<> ();
+        colors.add("Negre");
+        colors.add("Cian");
+        colors.add("Magenta");
+        colors.add("Groc");
+        percCol.add(black);
+        percCol.add(cian);
+        percCol.add(magenta);
+        percCol.add(groc);
+        SendEmail sendmail = new SendEmail();
+        for (int i = 0; i <= percCol.size(); i++) {
+            if (percCol.get(i) <= 60) {
+                String subject = "La impresora: HP Comuna s'ha quedat sense tinta";
+                String messages = "Falta el color: " + colors.get(i);
+                EnviarMail(sendmail, subject, messages);
+            }
+        }
     }
     private static void EnviarMail(SendEmail sendmail, String subject, String messages){
         try{

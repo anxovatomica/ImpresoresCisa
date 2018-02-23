@@ -5,6 +5,7 @@ import ImpresoraLauraCristina.BrotherLC;
 import ImpresoraJordi.BrotherJordi;
 import java.awt.Desktop;
 import java.io.*;
+import static HPComu.HPComu.*;
 
 /**
  *
@@ -42,9 +43,9 @@ public class CISA_Impresores {
         BrotherJordi(brotherjordi);
         System.out.println("Impresora Brother Jordi ... OK");
 
-        String subject = "Putetaas";
-        String messages = "que pasa looocaa";
-        EnviarMail(sendmail, subject, messages);
+//        String subject = "Putetaas";
+//        String messages = "que pasa looocaa";
+//        EnviarMail(sendmail, subject, messages);
 
         System.out.println("FUNCIONA");
         Desktop.getDesktop().open(file);
