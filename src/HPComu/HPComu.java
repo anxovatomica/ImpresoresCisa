@@ -66,9 +66,12 @@ public class HPComu {
         SendEmail sendmail = new SendEmail();
         for (int i = 0; i < percCol.size(); i++) {
             if (percCol.get(i) <= 100) {
+                System.out.println("La impresora s'ha quedat sense tinta, enviant mail ...");
                 String subject = "La impresora: HP Comuna s'ha quedat sense tinta";
                 String messages = "Falta el color: " + colors.get(i);
                 EnviarMail(sendmail, subject, messages);
+            }else{
+                System.out.println("OK");
             }
         }
     }

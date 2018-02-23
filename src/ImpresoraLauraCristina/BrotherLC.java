@@ -1,6 +1,5 @@
 package ImpresoraLauraCristina;
 
-
 import cisa_impresores.CisaExceptions;
 import cisa_impresores.SendEmail;
 import java.io.*;
@@ -34,9 +33,12 @@ public class BrotherLC {
         percentatgeBrother(percentatge);
         SendEmail sendmail = new SendEmail();
         if(percentatge < 100){
+             System.out.println("La impresora s'ha quedat sense tinta, enviant mail ...");
              String subject = "La impresora: Brother Laura & Cristina s'ha quedat sense tinta";
              String messages = "Falta el color: Negre (unic color)";
              EnviarMail(sendmail, subject, messages);
+        }else{
+            System.out.println("OK");
         }
     }
     private static void EnviarMail(SendEmail sendmail, String subject, String messages) {
