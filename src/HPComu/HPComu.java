@@ -1,8 +1,9 @@
 package HPComu;
 
-import cisa_impresores.CisaExceptions;
-import cisa_impresores.DisableSSLVerification;
+import cisa_impresores.*;
 import static HPComu.TintaComu.*;
+import static cisa_impresores.SendEmail.*;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -51,12 +52,27 @@ public class HPComu {
         tintaMagenta(magenta);
         int groc = Integer.parseInt(lines2.get(421).replace(" ", "").substring(0, 2));//Percentatge color negre
         tintaGroga(groc);
+        SendEmail sendmail = new SendEmail();
+        if(black <= 10){
+            String subject = "La impresora: " + "x" + " s'ha quedat sense tinta";
+            String messages = "Falta el color: " + "x";
+            EnviarMail(sendmail, subject, messages);
+        }
+        
+    }
+    private static void EnviarMail(SendEmail sendmail, String subject, String messages){
+        try{
+            sendmail.Email(subject, messages);
+            System.out.println("Email enviat!");
+        } catch (CisaExceptions ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 private static void DisableSsl(DisableSSLVerification disableSsl){
         try{
             disableSsl.disableSslVerification();
-            System.out.println("Email enviat!");
+            System.out.println("SSL Disabled");
         } catch (CisaExceptions ex) {
             System.out.println(ex.getMessage());
         }
