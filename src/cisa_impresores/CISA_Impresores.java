@@ -15,7 +15,7 @@ public class CISA_Impresores {
 
     public static void main(String[] args) throws IOException {
 
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html"); //Declarem l'arxiu on ho posarem tot
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
         System.out.println("Processant dades ...");
 
@@ -34,17 +34,17 @@ public class CISA_Impresores {
         BrotherJordi brotherjordi = new BrotherJordi();
         BrotherLC brotherlc = new BrotherLC();
 
-        System.out.println("Impresora Brother Laura & Cristina: ");
+        System.out.println("IMPRESORA BROTHER LAURA & CRISTINA: ");
         BrotherLC(brotherlc);
         
-        System.out.println("Impresora HP Comuna: ");
+        System.out.println("IMPRESORA HP COMUNA: ");
         HpComu(hpcomu);
         
-        System.out.println("Impresora Brother Jordi: ");
+        System.out.println("IMPRESORA BROTHER JORDI: ");
         BrotherJordi(brotherjordi);
 
         System.out.println("FUNCIONA");
-        Desktop.getDesktop().open(file);
+        //Desktop.getDesktop().open(file);
     }
 
     private static void BrotherLC(BrotherLC brotherlc) throws IOException {

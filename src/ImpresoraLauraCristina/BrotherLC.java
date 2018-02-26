@@ -16,12 +16,12 @@ public class BrotherLC {
         List<String> lines = new ArrayList<>(); //Array Brother HL-L2340D series
         String source1 = "http://192.168.28.234/general/status.html"; //Brother HL-L2340D
         URL url1 = new URL(source1);
-        String targetDirectory1 = "/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores";
+        String targetDirectory1 = "/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files";
         String fileName = source1.substring(source1.lastIndexOf('/') + 1, source1.length()); /**************/
         Path targetPath = new File(targetDirectory1 + File.separator + fileName).toPath();  /*status.html*/
         Files.copy(url1.openStream(), targetPath, StandardCopyOption.REPLACE_EXISTING);    /**************/
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html"); //Declarem l'arxiu on ho posarem tot
-        Scanner Brother = new Scanner(new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/status.html")); //Llegim l'arxiu status.html
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
+        Scanner Brother = new Scanner(new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/status.html")); //Llegim l'arxiu status.html
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         while (Brother.hasNext()) {
             lines.add(Brother.nextLine()); //A l'array 'lines' afegim una linia a cada posicio de status.html
@@ -32,7 +32,7 @@ public class BrotherLC {
         Double percentatge = (total * 100) / 170; //Fem el percentatge sobre el total
         percentatgeBrother(percentatge);
         SendEmail sendmail = new SendEmail();
-        if(percentatge < 100){
+        if(percentatge <= 10){
              System.out.println("La impresora s'ha quedat sense tinta, enviant mail ...");
              String subject = "La impresora: Brother Laura & Cristina s'ha quedat sense tinta";
              String messages = "Falta el color: Negre (unic color)";
@@ -49,7 +49,7 @@ public class BrotherLC {
         }
     }
     public static void percentatgeBrother(Double percentatge) throws IOException {
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html"); //Declarem l'arxiu on ho posarem tot
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         
         String q = "<!DOCTYPE html>\n"

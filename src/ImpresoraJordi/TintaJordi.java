@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class TintaJordi {
     public static void broCian(String cian) throws IOException {
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html");
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String html
                 = "<style>"
@@ -28,7 +28,7 @@ public class TintaJordi {
         bw.close();
     }
     public static void broBlack(String black) throws IOException {
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html");
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String html
                 = "<style>"
@@ -44,7 +44,7 @@ public class TintaJordi {
         bw.close();
     }
     public static void broYellow(String yellow) throws IOException {
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html");
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String html
                 = "<style>"
@@ -60,7 +60,7 @@ public class TintaJordi {
         bw.close();
     }
     public static void broMagenta(String magenta) throws IOException {
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html");
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String html
                 = "<style>"

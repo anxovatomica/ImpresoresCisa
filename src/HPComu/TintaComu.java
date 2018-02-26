@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class TintaComu {
     public static void tintaCian(int cian) throws IOException {
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html"); //Declarem l'arxiu on ho posarem tot
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String o = "<style>\n"
                 + "#barra3 {\n"
@@ -35,7 +35,7 @@ public class TintaComu {
         bw.close();
     }
     public static void tintaBlack(int black) throws IOException {
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html"); //Declarem l'arxiu on ho posarem tot
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String o = "<style>\n"
                 + "#barra2 {\n"
@@ -62,7 +62,7 @@ public class TintaComu {
         bw.close();
     }
     public static void tintaGroga(int groc) throws IOException {
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html"); //Declarem l'arxiu on ho posarem tot
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String o = "<style>\n"
                 + "#barra5 {\n"
@@ -86,7 +86,7 @@ public class TintaComu {
         bw.close();
     }
     public static void tintaMagenta(int magenta) throws IOException {
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html"); //Declarem l'arxiu on ho posarem tot
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String o = "<style>\n"
                 + "#barra4 {\n"

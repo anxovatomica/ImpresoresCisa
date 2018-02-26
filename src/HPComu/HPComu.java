@@ -27,7 +27,7 @@ public class HPComu {
         String source2 = "https://192.168.28.8/"; //HP LaserJet 500
         URL url2 = new URL(source2);
 
-        String targetDirectory2 = "/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/index.html";
+        String targetDirectory2 = "/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/index.html";
 
         DisableSSLVerification disableSsl = new DisableSSLVerification();
         DisableSsl(disableSsl); //Desavilito la verificacio ssl
@@ -55,23 +55,23 @@ public class HPComu {
 
         ArrayList<Integer> percCol = new ArrayList<>();
         ArrayList<String> colors = new ArrayList<>();
-        colors.add("Negre");
-        colors.add("Cian");
-        colors.add("Magenta");
-        colors.add("Groc");
+        colors.add("negre");
+        colors.add("cian");
+        colors.add("magenta");
+        colors.add("groc");
         percCol.add(black);
         percCol.add(cian);
         percCol.add(magenta);
         percCol.add(groc);
         SendEmail sendmail = new SendEmail();
         for (int i = 0; i < percCol.size(); i++) {
-            if (percCol.get(i) <= 100) {
-                System.out.println("La impresora s'ha quedat sense tinta, enviant mail ...");
+            if (percCol.get(i) <= 10) {
+                System.out.println("La impresora s'ha quedat sense color " + colors.get(i) + " , enviant mail ...");
                 String subject = "La impresora: HP Comuna s'ha quedat sense tinta";
                 String messages = "Falta el color: " + colors.get(i);
                 EnviarMail(sendmail, subject, messages);
             }else{
-                System.out.println("OK");
+                System.out.println("Color " + colors.get(i) + " ... OK");
             }
         }
     }
