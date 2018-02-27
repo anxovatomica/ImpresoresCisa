@@ -32,13 +32,13 @@ public class BrotherLC {
         Double percentatge = (total * 100) / 170; //Fem el percentatge sobre el total
         percentatgeBrother(percentatge);
         SendEmail sendmail = new SendEmail();
-        if(percentatge <= 10){
+        if(percentatge <= 7){
              System.out.println("La impresora s'ha quedat sense tinta, enviant mail ...");
              String subject = "La impresora: Brother Laura & Cristina s'ha quedat sense tinta";
              String messages = "Falta el color: Negre (unic color)";
              EnviarMail(sendmail, subject, messages);
         }else{
-            System.out.println("OK");
+            System.out.println("Color negre ... OK");
         }
     }
     private static void EnviarMail(SendEmail sendmail, String subject, String messages) {

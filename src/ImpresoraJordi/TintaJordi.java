@@ -10,7 +10,7 @@ import java.io.IOException;
  * @author linusdufol
  */
 public class TintaJordi {
-    public static void broCian(String cian) throws IOException {
+    public static void broCian(String cian, int per) throws IOException {
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String html
@@ -18,16 +18,16 @@ public class TintaJordi {
                 + "#html4 {"
                 + "  background-color: #00FFF7;"
                 + "  width: 90px;"
-                + "  height: 30px;"
+                + "  height: 40px;"
                 + "}"
                 + "</style>"
                 + "<h1>Impresora Brother JORDI</h1>"
                 + "<h4>Color cian</h4>"
-                + "<div id=html4>" + cian + "</div>";
+                + "<div id=html4>" + cian + "<br>" + per +"%" + "</div>";
         bw.write(html);
         bw.close();
     }
-    public static void broBlack(String black) throws IOException {
+    public static void broBlack(String black, int per) throws IOException {
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String html
@@ -35,15 +35,15 @@ public class TintaJordi {
                 + "#html3 {"
                 + "  background-color: #5B5B57;"
                 + "  width: 90px;"
-                + "  height: 30px;"
+                + "  height: 40px;"
                 + "}"
                 + "</style>"
                 + "<h4>Color negre</h4>"
-                + "<div id=html3>" + black + "</div>";
+                + "<div id=html3>" + black + "<br>" + per +"%" + "</div>";
         bw.write(html);
         bw.close();
     }
-    public static void broYellow(String yellow) throws IOException {
+    public static void broYellow(String yellow, int per) throws IOException {
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String html
@@ -51,15 +51,15 @@ public class TintaJordi {
                 + "#html1 {"
                 + "  background-color: #FFFF00;"
                 + "  width: 90px;"
-                + "  height: 30px;"
+                + "  height: 40px;"
                 + "}"
                 + "</style>"
                 + "<h4>Color groc</h4>"
-                + "<div id=html1>" + yellow + "</div>";
+                + "<div id=html1>" + yellow + "<br>" + per +"%" + "</div>";
         bw.write(html);
         bw.close();
     }
-    public static void broMagenta(String magenta) throws IOException {
+    public static void broMagenta(String magenta, int per) throws IOException {
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html");
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String html
@@ -67,11 +67,11 @@ public class TintaJordi {
                 + "#html2 {"
                 + "  background-color: #E80CA9;"
                 + "  width: 90px;"
-                + "  height: 30px;"
+                + "  height: 40px;"
                 + "}"
                 + "</style>"
                 + "<h4>Color magenta</h4>"
-                + "<div id=html2>" + magenta + "</div>";
+                + "<div id=html2>" + magenta + "<br>" + per +"%" + "</div>";
         bw.write(html);
         bw.close();
     }

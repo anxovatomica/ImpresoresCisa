@@ -5,7 +5,6 @@ import ImpresoraLauraCristina.BrotherLC;
 import ImpresoraJordi.BrotherJordi;
 import java.awt.Desktop;
 import java.io.*;
-import static HPComu.HPComu.*;
 
 /**
  *
@@ -44,7 +43,7 @@ public class CISA_Impresores {
         BrotherJordi(brotherjordi);
 
         System.out.println("FUNCIONA");
-        //Desktop.getDesktop().open(file);
+        Desktop.getDesktop().open(file);
     }
 
     private static void BrotherLC(BrotherLC brotherlc) throws IOException {

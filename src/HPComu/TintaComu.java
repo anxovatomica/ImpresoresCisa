@@ -10,7 +10,7 @@ import java.io.IOException;
  * @author linusdufol
  */
 public class TintaComu {
-    public static void tintaCian(int cian) throws IOException {
+    public static void tintaCian(Double cian) throws IOException {
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String o = "<style>\n"
@@ -34,7 +34,7 @@ public class TintaComu {
         bw.write(o);
         bw.close();
     }
-    public static void tintaBlack(int black) throws IOException {
+    public static void tintaBlack(Double black) throws IOException {
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String o = "<style>\n"
@@ -61,7 +61,7 @@ public class TintaComu {
         bw.write(o);
         bw.close();
     }
-    public static void tintaGroga(int groc) throws IOException {
+    public static void tintaGroga(Double groc) throws IOException {
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String o = "<style>\n"
@@ -85,7 +85,7 @@ public class TintaComu {
         bw.write(o);
         bw.close();
     }
-    public static void tintaMagenta(int magenta) throws IOException {
+    public static void tintaMagenta(Double magenta) throws IOException {
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         String o = "<style>\n"

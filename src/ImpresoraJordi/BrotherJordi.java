@@ -61,9 +61,9 @@ public class BrotherJordi {
         percCol.add(per3);
         percCol.add(per4);
         for (int i = 0; i < percCol.size(); i++) {
-            if (percCol.get(i) <= 10) {
+            if (percCol.get(i) <= 7) {
                 System.out.println("La impresora s'ha quedat sense color " + colors.get(i) + ", " + "percentatge = " + percCol.get(i) + "%, " + "enviant mail ...");
-                String subject = "La impresora: HP Comuna s'ha quedat sense tinta";
+                String subject = "La impresora: Brother Jordi s'ha quedat sense tinta";
                 String messages = "Falta el color: " + colors.get(i);
                 EnviarMail(sendmail, subject, messages);
             } else {
@@ -75,10 +75,10 @@ public class BrotherJordi {
         String magenta = lines3.get(158);
         String yellow = lines3.get(172);
         String black = lines3.get(186);
-        broCian(cian);
-        broMagenta(magenta);
-        broYellow(yellow);
-        broBlack(black);
+        broCian(cian, percCol.get(0));
+        broMagenta(magenta, percCol.get(1));
+        broYellow(yellow, percCol.get(2));
+        broBlack(black, percCol.get(3));
     }
     private static void EnviarMail(SendEmail sendmail, String subject, String messages) {
         try {

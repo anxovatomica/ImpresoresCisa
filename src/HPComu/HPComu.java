@@ -36,24 +36,24 @@ public class HPComu {
         Path targetPath2 = new File(targetDirectory2 + File.separator + fileName2).toPath();/***index.html***/
         Files.copy(url2.openStream(), targetPath2, StandardCopyOption.REPLACE_EXISTING);   /****************/
 
-        Scanner HPComun = new Scanner(new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/index.html"));// Llegim l'arxiu index.html
+        Scanner HPComun = new Scanner(new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/index.html"));// Llegim l'arxiu index.html
 
-        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/cisa_impresores/file.html"); //Declarem l'arxiu on ho posarem tot
+        File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
 
         while (HPComun.hasNext()) {
             lines2.add(HPComun.nextLine()); //A l'array 'lines' afegim una linia a cada posicio de index.html
         }
-        int black = Integer.parseInt(lines2.get(293).replace(" ", "").substring(0, 2));//Percentatge color negre
+        Double black = Double.parseDouble(lines2.get(293).replace(" ", "").substring(0, 2));//Percentatge color negre
         tintaBlack(black);
-        int cian = Integer.parseInt(lines2.get(335).replace(" ", "").substring(0, 2));//Percentatge color negre
+        Double cian = Double.parseDouble(lines2.get(335).replace(" ", "").substring(0, 2));//Percentatge color negre
         tintaCian(cian);
-        int magenta = Integer.parseInt(lines2.get(378).replace(" ", "").substring(0, 2));//Percentatge color negre
+        Double magenta = Double.parseDouble(lines2.get(378).replace(" ", "").substring(0, 2));//Percentatge color negre
         tintaMagenta(magenta);
-        int groc = Integer.parseInt(lines2.get(421).replace(" ", "").substring(0, 2));//Percentatge color negre
+        Double groc = Double.parseDouble(lines2.get(421).replace(" ", "").substring(0, 2));//Percentatge color negre
         tintaGroga(groc);
 
-        ArrayList<Integer> percCol = new ArrayList<>();
+        ArrayList<Double> percCol = new ArrayList<>();
         ArrayList<String> colors = new ArrayList<>();
         colors.add("negre");
         colors.add("cian");
