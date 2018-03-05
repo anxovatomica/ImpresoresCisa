@@ -31,11 +31,11 @@ public class HPComu {
 
         DisableSSLVerification disableSsl = new DisableSSLVerification();
         DisableSsl(disableSsl); //Desavilito la verificacio ssl
-
+try {
         String fileName2 = source2.substring(source2.lastIndexOf('/') + 1, source2.length());/****************/
         Path targetPath2 = new File(targetDirectory2 + File.separator + fileName2).toPath();/***index.html***/
         Files.copy(url2.openStream(), targetPath2, StandardCopyOption.REPLACE_EXISTING);   /****************/
-
+        
         Scanner HPComun = new Scanner(new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/index.html"));// Llegim l'arxiu index.html
 
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
@@ -44,17 +44,25 @@ public class HPComu {
         while (HPComun.hasNext()) {
             lines2.add(HPComun.nextLine()); //A l'array 'lines' afegim una linia a cada posicio de index.html
         }
+        
+        String askBlack = lines2.get(287).substring(30, 43);
+        String askCian = lines2.get(329).substring(30, 43);
+        String askMagenta = lines2.get(372).substring(30, 43);
+        String askGroc = lines2.get(415).substring(30, 43);
+        
         Double black = Double.parseDouble(lines2.get(293).replace(" ", "").substring(0, 2));//Percentatge color negre
+        
         tintaBlack(black);
-        Double cian = Double.parseDouble(lines2.get(335).replace(" ", "").substring(0, 2));//Percentatge color negre
+        Double cian = Double.parseDouble(lines2.get(335).replace(" ", "").substring(0, 2));//Percentatge color cian
         tintaCian(cian);
-        Double magenta = Double.parseDouble(lines2.get(378).replace(" ", "").substring(0, 2));//Percentatge color negre
+        Double magenta = Double.parseDouble(lines2.get(378).replace(" ", "").substring(0, 2));//Percentatge color magenta
         tintaMagenta(magenta);
-        Double groc = Double.parseDouble(lines2.get(421).replace(" ", "").substring(0, 2));//Percentatge color negre
+        Double groc = Double.parseDouble(lines2.get(421).replace(" ", "").substring(0, 2));//Percentatge color groc
         tintaGroga(groc);
 
         ArrayList<Double> percCol = new ArrayList<>();
         ArrayList<String> colors = new ArrayList<>();
+        ArrayList<String> tinta = new ArrayList<>();
         colors.add("negre");
         colors.add("cian");
         colors.add("magenta");
@@ -63,16 +71,25 @@ public class HPComu {
         percCol.add(cian);
         percCol.add(magenta);
         percCol.add(groc);
-        SendEmail sendmail = new SendEmail();
-        for (int i = 0; i < percCol.size(); i++) {
-            if (percCol.get(i) <= 10) {
-                System.out.println("La impresora s'ha quedat sense color " + colors.get(i) + ", " + "percentatge = " + percCol.get(i) + "%, " + "enviant mail ...");
-                String subject = "La impresora: HP Comuna s'ha quedat sense tinta";
-                String messages = "Falta el color: " + colors.get(i);
-                EnviarMail(sendmail, subject, messages);
-            }else{
-                System.out.println("Color " + colors.get(i) + " ... OK");
+        tinta.add(askBlack);
+        tinta.add(askCian);
+        tinta.add(askMagenta);
+            tinta.add(askGroc);
+
+            SendEmail sendmail = new SendEmail();
+            for (int i = 0; i < percCol.size(); i++) {
+                if (percCol.get(i) <= 7) {
+                    System.out.println("La impresora s'ha quedat sense color " + colors.get(i) + ", " + "percentatge = " + percCol.get(i) + "%, " + "enviant mail ...");
+                    String subject = "La impresora: HP Comuna s'ha quedat sense tinta";
+                    String messages = "Falta el color: " + colors.get(i) + " (" + percCol.get(i) + "%) \n" + "Cartuxos: " + tinta.get(i);
+                    EnviarMail(sendmail, subject, messages);
+                } else {
+                    System.out.println("Color " + colors.get(i) + " ... OK");
+                    
+                }
             }
+        } catch (IOException | NumberFormatException e) {
+            System.out.println(e.getMessage());
         }
     }
 

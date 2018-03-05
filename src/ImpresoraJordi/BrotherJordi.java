@@ -5,6 +5,10 @@ import static ImpresoraJordi.TintaJordi.*;
 import cisa_impresores.SendEmail;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.*;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.*;
 
 /**
@@ -14,24 +18,30 @@ import java.util.*;
 public class BrotherJordi {
 
     public void BrotherJordi() throws FileNotFoundException, IOException, CisaExceptions {
+        String source1 = "http://192.168.28.233/etc/view_config.html"; //Brother HL-L2340D
+        URL url1 = new URL(source1);
+        String targetDirectory1 = "/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files";
+        String fileName = source1.substring(source1.lastIndexOf('/') + 1, source1.length()); /**************/
+        Path targetPath = new File(targetDirectory1 + File.separator + fileName).toPath();  /*status.html*/
+        Files.copy(url1.openStream(), targetPath, StandardCopyOption.REPLACE_EXISTING);
         List<String> lines3 = new ArrayList<>(); //Array Brother Jordi
         List<Character> percCian = new ArrayList<>();
         List<Character> percMagenta = new ArrayList<>();
         List<Character> percGroc = new ArrayList<>();
         List<Character> percNegre = new ArrayList<>();
-
+        try{
         File file = new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/file.html"); //Declarem l'arxiu on ho posarem tot
-        Scanner info = new Scanner(new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/info.html")); //Llegim l'arxiu status.html
+        Scanner info = new Scanner(new File("/Users/linusdufol/Documents/workspace/CISA_Impresores/src/Files/view_config.html")); //Llegim l'arxiu status.html
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true)); //Declarem BW per file.html
         while (info.hasNext()) {
             lines3.add(info.nextLine()); //A l'array 'lines' afegim una linia a cada posicio de status.html
         }
 
         for (int i = 6; percCian.size() <= 9;) {
-            percCian.add(lines3.get(144).charAt(i));
-            percMagenta.add(lines3.get(158).charAt(i));
-            percGroc.add(lines3.get(172).charAt(i));
-            percNegre.add(lines3.get(186).charAt(i));
+            percCian.add(lines3.get(141).charAt(i));
+            percMagenta.add(lines3.get(155).charAt(i));
+            percGroc.add(lines3.get(169).charAt(i));
+            percNegre.add(lines3.get(183).charAt(i));
             i += 8;
         }
         int per = 0, per2 = 0, per3 = 0, per4 = 0;
@@ -49,6 +59,7 @@ public class BrotherJordi {
                 per4 =per4 + 1 * 10;
             }
         }
+      
         ArrayList<Integer> percCol = new ArrayList<>();
         ArrayList<String> colors = new ArrayList<>();
         SendEmail sendmail = new SendEmail();
@@ -75,10 +86,13 @@ public class BrotherJordi {
         String magenta = lines3.get(158);
         String yellow = lines3.get(172);
         String black = lines3.get(186);
-        broCian(cian, percCol.get(0));
-        broMagenta(magenta, percCol.get(1));
-        broYellow(yellow, percCol.get(2));
-        broBlack(black, percCol.get(3));
+        broCian(percCol.get(0));
+        broMagenta(percCol.get(1));
+        broYellow(percCol.get(2));
+        broBlack(percCol.get(3));
+        }catch (IOException | NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
     }
     private static void EnviarMail(SendEmail sendmail, String subject, String messages) {
         try {

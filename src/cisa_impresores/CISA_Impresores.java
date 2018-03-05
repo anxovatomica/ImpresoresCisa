@@ -29,7 +29,6 @@ public class CISA_Impresores {
         }
 
         HPComu hpcomu = new HPComu();
-        SendEmail sendmail = new SendEmail();
         BrotherJordi brotherjordi = new BrotherJordi();
         BrotherLC brotherlc = new BrotherLC();
 
@@ -42,8 +41,8 @@ public class CISA_Impresores {
         System.out.println("IMPRESORA BROTHER JORDI: ");
         BrotherJordi(brotherjordi);
 
-        System.out.println("FUNCIONA");
         Desktop.getDesktop().open(file);
+        System.out.println("FUNCIONA");
     }
 
     private static void BrotherLC(BrotherLC brotherlc) throws IOException {
@@ -65,15 +64,6 @@ public class CISA_Impresores {
     private static void HpComu(HPComu hPcomu) throws IOException {
         try {
             hPcomu.HPComu();
-        } catch (CisaExceptions ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
-    private static void EnviarMail(SendEmail sendmail, String subject, String messages) {
-        try {
-            sendmail.Email(subject, messages);
-            System.out.println("Email enviat!");
         } catch (CisaExceptions ex) {
             System.out.println(ex.getMessage());
         }
